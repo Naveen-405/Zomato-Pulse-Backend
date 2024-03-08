@@ -1,11 +1,12 @@
 const express= require("express");
 const app= express();
 const mongoose= require("mongoose")
-const port=5000;
+require('dotenv').config()
+const port= process.env.PORT;
 const CORS= require("cors");
 app.use(CORS())
 
-mongoose.connect("mongodb+srv://naveen_7:naveen77@cluster0.p5eplyq.mongodb.net/",{useNewUrlParser:true})
+mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true})
  .then(()=>{
     console.log(`DataBase is Connected`);
  })
